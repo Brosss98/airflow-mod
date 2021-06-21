@@ -1,6 +1,6 @@
 # Airflow Docker Image - Modify
 # Added: python-dev, libsasl2-dev, gcc and g++
-# Added: pandarallel, pyhive and dependencies
+# Added: pandarallel, pyhive, scikit-learn and their dependencies
 # Author: Mario Medone
 
 # From the latest version of apache/airflow
@@ -24,13 +24,14 @@ RUN sudo apt-get update \
 USER airflow
 
 # Upgrade pip
-# Install the latest version of pandarallel, pyhive and its dependencies
+# Install the latest version of pandarallel, pyhive, scikit-learn and their dependencies
 RUN pip install --upgrade pip \
     && pip install pandarallel \
     && pip install pyhive \
     && pip install thrift \
     && pip install sasl \
-    && pip install thrift_sasl
+    && pip install thrift_sasl \
+    && pip install scikit-learn
 
 # Image ready to be used!
 
